@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    width: 230px;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 2px 2px 5px #f5f5f5;
+}
+
+.container>* {
+    margin: 8px;
+}
+
+input{
+    border: none;
+    outline: none;
+    text-align: center;
+    background-color: #FFFFFF;
+    font-size: 1rem;
+    width: 150px;
+}
+
+button {
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 1rem;
+}
+
+button:hover {
+    color: #ffffff;
+    background-color: #a0a0a0;
+    cursor: pointer;
+}
+
+.box {
+    display: flex;
+    font-size: 1rem;
+}
+
+.copy {
+    position: relative;
+    margin-inline: 1rem;
+    filter: grayscale();
+    cursor: pointer;
+}
+
+.copy:hover{
+    filter: none;
+}
+.copy:hover::before{
+    content: "Copy";
+    position: absolute;
+    top: -1rem;
+    font-size: .8rem;
+}
+.message {
+    animation-name: copymessage;
+    animation-duration: 4s;
+    animation-direction: normal;
+    color: green;
+    margin: 0;
+}
+
+@keyframes copymessage {
+    0% {
+        opacity: 1;
+        height: 1.5rem;
+        display: block;
+    }
+
+    70% {
+        opacity: 0;
+        height: 1.5rem;
+        display: block;
+    }
+
+    100% {
+        opacity: 0;
+        height: 0;
+        display: none;
+    }
+}

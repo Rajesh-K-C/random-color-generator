@@ -6,99 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random color generator</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: white;
-            padding: 3px;
-            width: 200px;
-            border-radius: 10px;
-            border: 1px solid #e6e6e6;
-            box-shadow: 2px 2px 5px #f5f5f5;
-        }
-
-        .container>* {
-            margin: 8px;
-        }
-
-        button {
-            border-width: 1px;
-            border-radius: 5px;
-            padding: 5px 8px;
-        }
-
-        button:hover {
-            color: #ffffff;
-            background-color: #a0a0a0;
-            cursor: pointer;
-        }
-    </style>
-
-    <script>
-        function start() {
-            generat();
-            document.querySelector('button').onclick = () => {
-                generat();
-            }
-        } // end function start
-
-        // Generat random color
-        function generat() {
-            const rgbColor = document.querySelector('.rgb');
-            const hexColor= document.querySelector('.hex');
-            const body = document.querySelector('body');
-
-            const r = generatColor();
-            const g = generatColor();
-            const b = generatColor();
-
-            const hexValue = rgbToHex(r, g, b) // convert in hex value
-            const rgbValue = `rgb(${r}, ${g}, ${b})`; // combine the three values
-
-            rgbColor.innerHTML = rgbValue;
-            hexColor.innerHTML = hexValue.toUpperCase();
-            body.style.backgroundColor = rgbValue;
-
-        } // end function generat
-
-        // Generat random number between 0 to 255
-        function generatColor() {
-            return Math.floor(Math.random() * 255);
-        } // end function generatColor
-
-        function rgbToHex(r, g, b) {
-            const hexR = r.toString(16).padStart(2, "0"); // convert red value to hex string
-            const hexG = g.toString(16).padStart(2, "0"); // convert green value to hex string
-            const hexB = b.toString(16).padStart(2, "0"); // convert blue value to hex string
-            return `#${hexR}${hexG}${hexB}`; // combine the three hex values and return the result
-        } // end function rgbToHex
-
-
-        window.addEventListener("load", start, false)
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <button>Generat</button>
-        <div class="rgb"></div>
-        <div class="hex"></div>
+        <button type="button">Generat</button>
+        <div class="box">
+            <input id="rgb" type="text" value="rgb(255, 255, 255)" disabled>
+            <samp class="copy" id="copy-rgb">&#128203;</samp>
+        </div>
+        <div class="box">
+            <input id="hex" type="text" value="#FFFFFF" disabled>
+            <span class="copy" id="copy-hex">&#128203;</span>
+        </div>
     </div>
 </body>
 
